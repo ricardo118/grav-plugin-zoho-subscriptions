@@ -1,0 +1,27 @@
+<div id="customer-details" class="portal-item dashboard-item dashboard-left">
+    <div class="default-box-shadow">
+        <h1>{{ "PLUGIN_ZOHO_SUBSCRIPTIONS.CUSTOMER_DETAILS"|tu }}</h1>
+        <div id="cp-userdetails" class="user-details">
+            <ul>
+                {% if not customer.display_name is empty %}<li>{{ customer.display_name }}</li>{% endif %}
+                {% if not customer.company_name is empty %}<li>{{ customer.company_name }}</li>{% endif %}
+                {% if not customer.email is empty %}<li>{{ customer.email }}</li>{% endif %}
+                {% if not customer.phone is empty %}<li>{{ customer.phone }}</li>{% endif %}
+                {% if not customer.mobile is empty %}<li>{{ customer.mobile }}</li>{% endif %}
+            </ul>
+        </div>
+        <div id="cp-addressdetails" class="address-details">
+            <h1>{{ "PLUGIN_ZOHO_SUBSCRIPTIONS.DEFAULT_ADDRESS"|tu }}</h1>
+            <ul>
+                {% for key,address_field in customer.billing_address %}
+
+                   <li class="{{ key }}">{{ address_field }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="flush-bottom button-bar">
+            <a class="button" href="#modal" data-remodal-target="modal">{{ "PLUGIN_ZOHO_SUBSCRIPTIONS.EDIT_DETAILS"|tu }}</a>
+        </div>
+    </div>
+</div>

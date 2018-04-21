@@ -1,0 +1,22 @@
+<div id="payment-details" class="portal-item dashboard-item dashboard-left">
+    <div class="default-box-shadow">
+        <h1>{{ "PLUGIN_ZOHO_SUBSCRIPTIONS.PAYMENT_DETAILS"|tu }}</h1>
+        {% if cards is not empty %}
+        <div class="">
+            <h6>{{ "PLUGIN_ZOHO_SUBSCRIPTIONS.CARD_DETAILS"|tu }}</h6>
+            {% for card in cards %}
+                **** **** **** {{ card['last_four_digits'] }} <span style="margin-left:20px;">{{ card['expiry_month'] }}/{{ card['expiry_year'] }}</span> <a class="edit-card" href="#modal-editcard" data-remodal-target="modal-editcard">{{ "PLUGIN_ZOHO_SUBSCRIPTIONS.EDIT"|tu }}</a><br>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% if banks is not empty %}
+            <div class="">
+                <h6>{{ "PLUGIN_ZOHO_SUBSCRIPTIONS.BANK_DETAILS"|tu }}</h6>
+                {% for bank in banks %}
+
+                {% endfor %}
+
+            </div>
+        {% endif %}
+    </div>
+</div>

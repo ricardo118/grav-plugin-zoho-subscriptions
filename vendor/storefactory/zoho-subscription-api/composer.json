@@ -1,0 +1,17 @@
+{
+    "name": "storefactory/zoho-subscription-api",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Zoho\\Subscription\\": "lib/"
+        }
+    },
+    "description": "PHP library to retrieve Zoho Subscription via its API",
+    "require": {
+        "php": "~5.4|~7.0",
+        "guzzlehttp/guzzle": "^6.1",
+        "doctrine/cache": "^1.4"
+
+    },
+    "minimum-stability": "stable"
+}

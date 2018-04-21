@@ -1,0 +1,5 @@
+{
+    "require": {
+        "storefactory/zoho-subscription-api": ">=1.0.0"
+    }
+}

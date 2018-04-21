@@ -1,0 +1,59 @@
+name: Zoho Subscriptions
+version: 1.0.0
+description: The Grav Zoho Subscriptions Client API Plugin
+icon: plug
+author:
+  name: Ricardo
+  email: ricardo@urbansquid.london
+homepage: https://github.com/ricardo/grav-plugin-zoho-subscriptions
+demo: http://demo.yoursite.com
+keywords: grav, plugin, zoho, subscriptions, zoho subscriptions, zoho api, subscription
+bugs: https://github.com/ricardo/grav-plugin-zoho-subscriptions/issues
+docs: https://github.com/ricardo/grav-plugin-zoho-subscriptions/blob/develop/README.md
+license: MIT
+
+form:
+  validation: strict
+  fields:
+    enabled:
+      type: toggle
+      label: Plugin status
+      highlight: 1
+      default: 0
+      options:
+        1: Enabled
+        0: Disabled
+      validate:
+        type: bool
+    portal:
+      type: text
+      label: Portal URL
+      placeholder: https://subscriptions.zoho.com/portal/your_portal_name
+    org_id:
+      type: number
+      label: Organization ID
+      validate:
+        required: true
+    auth_token:
+      type: password
+      label: Authentication Token
+      validate:
+        type: text
+        required: true
+    customerid:
+      type: text
+      label: Customer ID
+      validate:
+        required: true
+    spacer:
+      type: section
+      title: Lockdown
+      text: This toggle is used for blocking all access to the frontend. When set to locked, no front end pages will be accesible and will all redirect to the `lockdown` template.
+    lockdown:
+      type: toggle
+      label: Lock the website
+      highlight: 0
+      default: 0
+      options:
+        1: Locked
+        0: Unlocked

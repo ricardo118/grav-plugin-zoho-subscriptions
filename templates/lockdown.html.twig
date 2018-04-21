@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Website Expired</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="{{ url('plugin://zoho-subscriptions/css/main.css') }}" />
+</head>
+<body class="is-loading">
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <!-- Main -->
+    <section id="main">
+        <header>
+            <img src="{{ url('plugin://zoho-subscriptions/images/logo.svg') }}" alt="" />
+            {{ page.content }}
+        </header>
+        <footer>
+            <a id="owner_button" href="{{ page.header.button_url }}">{{ page.header.button_text }}</a>
+        </footer>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <ul class="copyright">
+            <li>&copy; Grav CMS</li><li style="color:#323640">by <a href="https://trilby.media/">Trilby Media</a></li>
+        </ul>
+    </footer>
+
+</div>
+<!-- Scripts -->
+<!--[if lte IE 8]><script src="{{ url('plugin://zoho-subscriptions/js/respond.min.js') }}"></script><![endif]-->
+<script>
+    if ('addEventListener' in window) {
+        window.addEventListener('load', function() { document.body.className = document.body.className.replace(/\bis-loading\b/, ''); });
+        document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
+    }
+</script>
+
+</body>
+</html>

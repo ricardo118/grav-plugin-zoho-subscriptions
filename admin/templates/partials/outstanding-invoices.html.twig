@@ -1,0 +1,20 @@
+<div id="outstanding-invoices" class="portal-item dashboard-item dashboard-left">
+    <div class="default-box-shadow">
+        <h1>{{ "PLUGIN_ZOHO_SUBSCRIPTIONS.OUTSTANDING"|tu }}</h1>
+        <div class="">
+            <h2 style="color: {{ customer.outstanding|number_format(0) > 0 ? 'firebrick' }}">{{ customer.currency_symbol }}{{ customer.outstanding|number_format(customer.price_precision, '.') }}</h2>
+        </div>
+        {% if customer.unused_credits > 0 %}
+        <div class="">
+            <p>{{ "PLUGIN_ZOHO_SUBSCRIPTIONS.AVAILABLE_CREDITS"|tu }}
+            <br>
+            {{ customer.currency_symbol }}{{ customer.unused_credits|number_format(customer.price_precision, '.') }}</p>
+        </div>
+        {% endif %}
+        {% if invoices.overdue or invoices.unpaid or invoices.sent or invoices.viewed or invoices.partiallypaid %}
+            <div class="flush-bottom button-bar">
+                <a class="button" href="#modal-paynow" data-remodal-target="modal-paynow">{{ "PLUGIN_ZOHO_SUBSCRIPTIONS.PAY_NOW"|tu }}</a>
+            </div>
+        {% endif %}
+    </div>
+</div>

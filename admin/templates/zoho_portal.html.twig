@@ -1,0 +1,46 @@
+{% extends 'partials/base.html.twig' %}
+
+{% set title = "PLUGIN_ADMIN.DASHBOARD"|tu %}
+{% set body_classes = page.header.body_classes %}
+{% set clear_cache_url = base_url_relative ~ '/cache.json/task' ~ config.system.param_sep ~ 'clearCache'|e('html_attr') %}
+
+{% block titlebar %}
+    <div class="button-bar">
+        {#<a class="button" data-clear-cache-type="cache-only" data-clear-cache="{{ uri.addNonce(clear_cache_url ~'/cleartype' ~ config.system.param_sep ~ 'cache-only', 'admin-form', 'admin-nonce') }}" href="#">{{ "PLUGIN_ADMIN.CLEAR_CACHE_CACHE_ONLY"|tu }}</a>#}
+        <a href="{{ config.plugins['zoho-subscriptions'].portal }}" target="_blank" class="button">{{ "PLUGIN_ZOHO_SUBSCRIPTIONS.ACCESS_PORTAL"|tu }}</a>
+    </div>
+    <h1><i class="fa fa-fw fa-th"></i> {{ "PLUGIN_ZOHO_SUBSCRIPTIONS.CLIENT_PORTAL"|tu }}</h1>
+{% endblock %}
+
+{% block widgets %}
+        <div class="dashboard-notifications-container"></div>
+
+    <div id="admin-dashboard">
+        <div class="dashboard-item-flex">
+            {% include 'partials/outstanding-invoices.html.twig' %}
+            {% include 'partials/payments-made.html.twig' %}
+            {% include 'partials/active-subscription.html.twig' %}
+        </div>
+        <div class="dashboard-item-flex">
+            {% include 'partials/customer-details.twig' %}
+            {% include 'partials/payment-details.twig' %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block content_middle %} {# empty #} {% endblock %}
+
+{% block content_bottom %}
+    <div class="remodal" data-remodal-id="modal" data-remodal-options="hashTracking: false">
+        {% include 'forms/user-details.html.twig' %}
+    </div>
+    <div class="remodal" data-remodal-id="modal-paynow" data-remodal-options="hashTracking: false">
+        {% include 'partials/pay-now.html.twig' %}
+    </div>
+    <div class="remodal" data-remodal-id="modal-paymenthistory" data-remodal-options="hashTracking: false">
+        {% include 'partials/payments-made-history.html.twig' %}
+    </div>
+    <div class="remodal" data-remodal-id="modal-editcard" data-remodal-options="hashTracking: false">
+        {% include 'forms/edit-card.html.twig' %}
+    </div>
+{% endblock %}

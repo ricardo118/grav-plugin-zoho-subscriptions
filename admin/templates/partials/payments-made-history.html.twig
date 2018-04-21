@@ -1,0 +1,25 @@
+<form>
+    <h1>{{ 'PLUGIN_ZOHO_SUBSCRIPTIONS.PAYMENT_HISTORY'|tu }}</h1>
+    <table>
+        <tr>
+            <th style="color: #312d3c;">Date</th>
+            <th style="color: #312d3c;">Invoice</th>
+            <th style="color: #312d3c;">Status</th>
+            <th style="color: #312d3c;">Balance</th>
+        </tr>
+        {% for invoice in invoices.paid %}
+            <tr>
+            <td>{{ invoice['invoice_date']|date('j M Y') }}</td>
+            <td><a style="color: #ffc600;" href="/admin/zoho_portal/invoice/download/id:{{ invoice['invoice_id'] }}">{{ invoice['number'] }}</a></td>
+            <td style="font-weight: 900;color: {{ invoice['status'] == 'paid' ? 'green' }}">{{ invoice['status']|capitalize }}</td>
+            <td>{{ invoice['currency_symbol'] }}{{ invoice['balance'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <div class="button-bar">
+        <a class="button secondary" data-remodal-action="cancel" href="#">{{ 'PLUGIN_ADMIN.CLOSE'|tu }}</a>
+        <a class="button secondary" target="_blank" href="https://subscriptions.zoho.com/portal/urbansquidtest">{{ 'PLUGIN_ZOHO_SUBSCRIPTIONS.ACCESS_PORTAL'|tu }}</a>
+    </div>
+</form>
+

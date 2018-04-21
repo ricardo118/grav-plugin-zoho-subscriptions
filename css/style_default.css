@@ -1,0 +1,20 @@
+.portal-item {
+    background: #fff;
+}
+.portal-item a {
+    color: #0090D9;
+}
+.portal-item a:hover {
+    color: #26a1df;
+}
+.portal-item a.button {
+    color: rgba(255,255,255,0.85);
+}
+
+.portal-item h2 {
+    letter-spacing: -1px;
+}
+
+.button-bar {
+    background: #3D424E;
+}

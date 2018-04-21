@@ -1,0 +1,16 @@
+<div id="payments-made" class="portal-item dashboard-item dashboard-left">
+    <div class="default-box-shadow">
+        <h1>{{ "PLUGIN_ZOHO_SUBSCRIPTIONS.LAST_PAYMENT_MADE"|tu }}</h1>
+        <div class="">
+            <h2>{{ customer.currency_symbol }}{{ invoice.total|number_format(customer.price_precision, '.') }}</h2>
+        </div>
+        <div class="">
+            {{ "PLUGIN_ZOHO_SUBSCRIPTIONS.INVOICE_PAID"|tu([invoice.invoice_url, invoice.number, invoice.invoice_date|date('d F Y')])|raw }}
+        </div>
+
+        <div class="flush-bottom button-bar">
+            <a href="/admin/zoho_portal/invoice/download/id:{{ invoice.invoice_id }}" data-hint="{{ "PLUGIN_ZOHO_SUBSCRIPTIONS.DOWNLOAD_INVOICE_HINT"|tu }}" id="invoice-download" target="_blank" class="button hint--bottom">{{ "PLUGIN_ZOHO_SUBSCRIPTIONS.DOWNLOAD_INVOICE"|tu }}</a>
+            <a class="button hint--bottom" data-hint="{{ "PLUGIN_ZOHO_SUBSCRIPTIONS.PAYMENT_HISTORY_HINT"|tu }}" href="#modal-paymenthistory" data-remodal-target="modal-paymenthistory">{{ "PLUGIN_ZOHO_SUBSCRIPTIONS.PAYMENT_HISTORY"|tu }}</a>
+        </div>
+    </div>
+</div>

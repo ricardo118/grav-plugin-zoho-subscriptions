@@ -1,0 +1,13 @@
+<div id="active-subscription" class="portal-item dashboard-item dashboard-left">
+    <div class="default-box-shadow">
+
+        <h1>{{ "PLUGIN_ZOHO_SUBSCRIPTIONS.SUBSCRIPTION"|tu }}{{ subscriptions|length > 1 ? 's' }}</h1>
+        {% for subscription in subscriptions %}
+            <div class="subscriptions">
+                <h2>{{ subscription.plan_name }} <span class="status {{ subscription.status }}">{{ subscription.status|upper }}</span></h2>
+                {{ "PLUGIN_ZOHO_SUBSCRIPTIONS.ACTIVED_ON"|tu([subscription.activated_at|date('d F Y')]) }}</br>
+                {{ "PLUGIN_ZOHO_SUBSCRIPTIONS.NEXT_BILLING"|tu([subscription.next_billing_at|date('d F Y')]) }}
+            </div>
+        {% endfor %}
+    </div>
+</div>
